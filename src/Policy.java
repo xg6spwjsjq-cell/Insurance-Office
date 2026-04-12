@@ -12,7 +12,8 @@ public class Policy {
     private static int createdPolicyCount = 0;
     private static final double ADMINISTRATIVE_FEE = 50.0;
 
-    public Policy(String policyNumber, String clientName, double basePremium, int riskLevel, double vehicleValue, boolean hasAlarm, boolean claimFreeClient) {
+    public Policy(String policyNumber, String clientName, double basePremium, int riskLevel, double vehicleValue,
+            boolean hasAlarm, boolean claimFreeClient) {
         this.policyNumber = policyNumber;
         this.clientName = clientName;
         this.basePremium = basePremium;
@@ -42,7 +43,7 @@ public class Policy {
         return Math.round(premium * 100.0) / 100.0;
     }
 
-    public dobule calculateRenewalPremium() {
+    public double calculateRenewalPremium() {
         double currentPremium = calculateFinalPremium();
         double renewal = currentPremium;
 
@@ -90,8 +91,10 @@ public class Policy {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object)
+            return true;
+        if (object == null || getClass() != object.getClass())
+            return false;
         Policy policy = (Policy) object;
         return Objects.equals(policyNumber, policy.policyNumber);
     }
